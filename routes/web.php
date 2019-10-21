@@ -15,12 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function() {
-    $crawler = Goutte::request('GET', 'http://nicesnippets.com');
-
-    $crawler->filter('.blog-post-item h2 a')->each(function ($node) {
-
-      dump($node->text());
-
-    });
-});
+Route::get('/test', 'TestController@test');
